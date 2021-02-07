@@ -102,10 +102,10 @@ class TempTracker(object):
                 line_numbers += 1
             return line_numbers + 1
 
+###########################
+# tracker_01 = TempTracker()
 
-tracker_01 = TempTracker()
-
-tracker_01.insert(48)
-print("Minimum is: {}".format(tracker_01.get_min()))
-print("Maximum is: {}".format(tracker_01.get_max()))
-print("Average is: {}".format(tracker_01.get_mean()))
+# tracker_01.insert(48)
+# print("Minimum is: {}".format(tracker_01.get_min()))
+# print("Maximum is: {}".format(tracker_01.get_max()))
+# print("Average is: {}".format(tracker_01.get_mean()))
