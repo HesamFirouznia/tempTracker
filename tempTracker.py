@@ -4,7 +4,7 @@
 # Created By  : Hesamaldin Firouznia
 # Created Date: Saturday February 02 2021
 # =============================================================================
-"""The Module Has Been Build for record temperature value in a JSON file, to get min , max or mean of all of them"""
+"""The Module Has Been Build for record temperature value in a JSON file, to get min , max or mean of all of them."""
 
 # =============================================================================
 # Imports
@@ -14,11 +14,13 @@ import json
 
 class TempTracker(object):
     """This is a class for recording temperature value, and return min, max or average of them.
+
     """
 
-    def __init__(self, temperature=None):
+    def __init__(self):
+        """ Initializing JSON file
+        """
         self.record_data = {}
-        self.temperature = temperature
         self.json_file = open("my_json.json", "a")
         self.line_number = self.read_json()
 
@@ -27,8 +29,6 @@ class TempTracker(object):
 
         :type: temperature: int
         :param temperature: Amount of temperature value.
-        :rtype: int
-        :return:
         """
         # Raise error, if input value is not between 0 and 110.
         if not -1 < temperature < 111:
@@ -42,11 +42,10 @@ class TempTracker(object):
         else:
             counter = ''
 
-        # Put new line in JSON file.
+        # Put new line in JSON file based on input value.
         self.json_file.write(str('{}"{}{}": "{}"{}'.format('{', counter, self.read_json(), temperature, '}')))
         self.json_file.write("\n")
         self.json_file.close()
-        return self.json_file
 
     def get_max(self):
         """Get maximum of all the recorded temperature.
@@ -102,10 +101,10 @@ class TempTracker(object):
                 line_numbers += 1
             return line_numbers + 1
 
-###########################
-# tracker_01 = TempTracker()
 
-# tracker_01.insert(48)
-# print("Minimum is: {}".format(tracker_01.get_min()))
-# print("Maximum is: {}".format(tracker_01.get_max()))
-# print("Average is: {}".format(tracker_01.get_mean()))
+tracker_01 = TempTracker()
+
+tracker_01.insert(99)
+print("Minimum is: {}".format(tracker_01.get_min()))
+print("Maximum is: {}".format(tracker_01.get_max()))
+print("Average is: {}".format(tracker_01.get_mean()))
