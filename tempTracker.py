@@ -14,7 +14,6 @@ import json
 
 class TempTracker(object):
     """This is a class for recording temperature value, and return min, max or average of them.
-
     """
 
     def __init__(self):
@@ -100,11 +99,3 @@ class TempTracker(object):
             for _ in file:
                 line_numbers += 1
             return line_numbers + 1
-
-
-tracker_01 = TempTracker()
-
-tracker_01.insert(99)
-print("Minimum is: {}".format(tracker_01.get_min()))
-print("Maximum is: {}".format(tracker_01.get_max()))
-print("Average is: {}".format(tracker_01.get_mean()))
